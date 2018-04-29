@@ -20,13 +20,12 @@ export class NavbarComponent implements OnInit {
   user: User;
   env;
   nav_links_user: Array<NavLinks> = [
-    {route: 'user/update', name: 'Profile'},
-    {route: 'company/create', name: 'Create Company'},
-    {route: 'company/list', name: 'My Companies'}
+    {route: 'user/update', name: 'Profile'}
   ];
   nav_links_no_user: Array<NavLinks> = [
     {route: 'home', name: 'Home'},
-    {route: 'login', name: 'Login/Register'}
+    {route: 'login', name: 'Login/Register'},
+    {route: 'jobs', name: 'Jobs'}
   ];
 
   constructor(private cd: ChangeDetectorRef) {

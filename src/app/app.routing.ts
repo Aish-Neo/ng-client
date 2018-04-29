@@ -14,18 +14,25 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { CompanyCreateComponent } from './components/company/company-create/company-create.component';
 import { CompanyListComponent } from './components/company/company-list/company-list.component';
 import { CompanyUpdateComponent } from './components/company/company-update/company-update.component';
+import {ListOfJobsComponent} from "./components/jobs/list-of-jobs/list-of-jobs.component";
+import {NgModule} from "@angular/core";
 
 const APP_ROUTES: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
   { path: 'home',           component: HomeComponent,pathMatch: 'full' },
 
-  { path: 'login',          component: LoginComponent,pathMatch: 'full' },
-
+  { path: 'login', loadChildren: 'app/components/auth/login/login.module#LoginModule'},
   { path: 'user/update',     component: ProfileComponent,canActivate:[ApiGuard], pathMatch: 'full' },
-
-  { path: 'company/create',     component: CompanyCreateComponent, canActivate:[ApiGuard], pathMatch: 'full' },
-  { path: 'company/list',       component: CompanyListComponent,   canActivate:[ApiGuard], pathMatch: 'full' },
-  { path: 'company/update/:id', component: CompanyUpdateComponent, canActivate:[ApiGuard], pathMatch: 'full' },
+  { path: 'jobs', redirectTo: '/jobs/list', pathMatch: 'full' },
+  { path: 'jobs/list', component: ListOfJobsComponent,pathMatch: 'full' },
 ];
 
-export const routing = RouterModule.forRoot(APP_ROUTES);
+@NgModule({
+  imports: [RouterModule.forRoot(APP_ROUTES)],
+  exports: [RouterModule]
+})
+export class AppRouting {};

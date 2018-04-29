@@ -2,12 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Injector } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatDialogModule, MatSnackBarModule, MatGridListModule, MatDividerModule, MatCardModule, MatButtonModule, MatSidenavModule, MatCheckboxModule, MatToolbarModule, MatMenuModule, MatIconModule, MatInputModule } from '@angular/material';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { HttpModule } from '@angular/http';
-import { routing } from './app.routing';
+import {AppRouting} from './app.routing';
 import { FacebookModule } from 'ngx-facebook';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -26,7 +25,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { NavbarComponent } from './components/partials/navbar/navbar.component';
-import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { CompanyCreateComponent } from './components/company/company-create/company-create.component';
@@ -34,6 +32,8 @@ import { CompanyListComponent } from './components/company/company-list/company-
 import { CompanyUpdateComponent } from './components/company/company-update/company-update.component';
 import { DialogDefaultComponent } from './components/dialogs/dialog-default/dialog-default.component';
 import { DialogRemoveComponent } from './components/dialogs/dialog-remove/dialog-remove.component';
+import { ListOfJobsComponent } from './components/jobs/list-of-jobs/list-of-jobs.component';
+import {MaterialModule} from "./material.module";
 
 @NgModule({
   declarations: [
@@ -41,7 +41,6 @@ import { DialogRemoveComponent } from './components/dialogs/dialog-remove/dialog
     HomeComponent,
     FooterComponent,
     NavbarComponent,
-    LoginComponent,
     RegisterComponent,
     ProfileComponent,
     CompanyCreateComponent,
@@ -49,30 +48,19 @@ import { DialogRemoveComponent } from './components/dialogs/dialog-remove/dialog
     CompanyUpdateComponent,
     DialogDefaultComponent,
     DialogRemoveComponent,
+    ListOfJobsComponent,
 
   ],
   imports: [
     BrowserModule,
-    routing,
+    AppRouting,
     HttpModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatToolbarModule,
     FacebookModule.forRoot(),
     FlexLayoutModule,
-    MatSidenavModule,
-    MatInputModule,
     ReactiveFormsModule,
-    MatDividerModule,
-    MatCardModule,
-    MatGridListModule,
-    MatSnackBarModule,
-    MatDialogModule
+    MaterialModule
   ],
   entryComponents: [
     DialogDefaultComponent,

@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   title:string = 'Login / Register';
   register:boolean = false;
   user:any;
-
   loginForm = new FormGroup({
     unique: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -52,6 +51,7 @@ export class LoginComponent implements OnInit {
   }
 
   async onSubmit(){
+    Util.openDefaultDialog();
     var data = {
       unique_key    :this.user_info.unique,
       password      :this.user_info.password,
